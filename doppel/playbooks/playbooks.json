@@ -1,0 +1,317 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "07e0caa9-2a1c-4e60-97f3-5531916e2924",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "6aaba19a-6078-4ed9-98c0-f29fdce2728f",
+          "collection": "/api/3/workflow_collections/07e0caa9-2a1c-4e60-97f3-5531916e2924",
+          "steps": [
+            {
+              "uuid": "dd6debfd-79b0-4c18-88a9-85c28cd437d1",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "1f8b7b41-342c-47ff-83c7-2188b64b6908",
+              "@type": "WorkflowStep",
+              "name": "Get All Alerts",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Doppel",
+                "config": "",
+                "params": {
+                  "search_key": "",
+                  "queue_state": "",
+                  "product": "",
+                  "created_after": "",
+                  "created_before": "",
+                  "last_activity_timestamp": "",
+                  "sort_type": "",
+                  "sort_order": "",
+                  "page": "",
+                  "tags": ""
+                },
+                "version": "1.0.0",
+                "connector": "doppel",
+                "operation": "get_all_alerts",
+                "operationTitle": "Get All Alerts"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of alerts from the Doppel server using the specified filter parameters.",
+          "name": "Get All Alerts",
+          "tag": "#Doppel",
+          "recordTags": [
+            "Doppel",
+            "doppel"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/dd6debfd-79b0-4c18-88a9-85c28cd437d1",
+          "routes": [
+            {
+              "uuid": "e4375ff8-c5cb-4161-9ab1-53ef0d02f36b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Alerts",
+              "sourceStep": "/api/3/workflow_steps/dd6debfd-79b0-4c18-88a9-85c28cd437d1",
+              "targetStep": "/api/3/workflow_steps/1f8b7b41-342c-47ff-83c7-2188b64b6908"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "eedb8afa-bf08-45fb-831b-7d32c78688b0",
+          "collection": "/api/3/workflow_collections/07e0caa9-2a1c-4e60-97f3-5531916e2924",
+          "steps": [
+            {
+              "uuid": "7704de76-576a-4c65-b297-e84445b771b3",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "354f6051-c100-46d6-a81b-0be30c30d0b5",
+              "@type": "WorkflowStep",
+              "name": "Get Alert Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Doppel",
+                "config": "",
+                "params": {
+                  "id": "",
+                  "entity": ""
+                },
+                "version": "1.0.0",
+                "connector": "doppel",
+                "operation": "get_alert_details",
+                "operationTitle": "Get Alert Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific alert details from the Doppel server using the provided alert ID or entity.",
+          "name": "Get Alert Details",
+          "tag": "#Doppel",
+          "recordTags": [
+            "Doppel",
+            "doppel"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7704de76-576a-4c65-b297-e84445b771b3",
+          "routes": [
+            {
+              "uuid": "eaff176c-8c4b-49d2-88a7-1e7bb0115a4d",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert Details",
+              "sourceStep": "/api/3/workflow_steps/7704de76-576a-4c65-b297-e84445b771b3",
+              "targetStep": "/api/3/workflow_steps/354f6051-c100-46d6-a81b-0be30c30d0b5"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bcb074d7-4d03-4a3d-94e0-e658aaa3d359",
+          "collection": "/api/3/workflow_collections/07e0caa9-2a1c-4e60-97f3-5531916e2924",
+          "steps": [
+            {
+              "uuid": "b1325b05-0214-46ae-a15d-6a211ddaa81f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "9d08af85-b6ee-4547-802c-884ccc89b787",
+              "@type": "WorkflowStep",
+              "name": "Update Alert",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Doppel",
+                "config": "",
+                "params": {
+                  "id": "",
+                  "entity": "",
+                  "queue_state": "",
+                  "entity_state": "",
+                  "comment": "",
+                  "tag_action": "",
+                  "tag_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "doppel",
+                "operation": "update_alert",
+                "operationTitle": "Update Alert"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Update a specific alert on the Doppel server using the provided Alert ID or Entity, along with the input parameters you've specified.",
+          "name": "Update Alert",
+          "tag": "#Doppel",
+          "recordTags": [
+            "Doppel",
+            "doppel"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b1325b05-0214-46ae-a15d-6a211ddaa81f",
+          "routes": [
+            {
+              "uuid": "95617cd2-6a44-4201-86a2-2cfa86afbe07",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Alert",
+              "sourceStep": "/api/3/workflow_steps/b1325b05-0214-46ae-a15d-6a211ddaa81f",
+              "targetStep": "/api/3/workflow_steps/9d08af85-b6ee-4547-802c-884ccc89b787"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9a5b0b0c-09ed-4394-a6e5-f97a42ab15e4",
+          "collection": "/api/3/workflow_collections/07e0caa9-2a1c-4e60-97f3-5531916e2924",
+          "steps": [
+            {
+              "uuid": "83633a47-243b-43bf-a28f-fb8794f028e5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "49992d4a-8950-4008-9577-f59a5e746f40",
+              "@type": "WorkflowStep",
+              "name": "Execute an API Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Doppel",
+                "config": "",
+                "params": {
+                  "method": "",
+                  "endpoint": "",
+                  "query_params": "",
+                  "payload": ""
+                },
+                "version": "1.0.0",
+                "connector": "doppel",
+                "operation": "execute_an_api_call",
+                "operationTitle": "Execute an API Request"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+          "name": "Execute an API Request",
+          "tag": "#Doppel",
+          "recordTags": [
+            "Doppel",
+            "doppel"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/83633a47-243b-43bf-a28f-fb8794f028e5",
+          "routes": [
+            {
+              "uuid": "eceb8eb4-f8ae-4a5e-8f65-7702277e1865",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Execute an API Request",
+              "sourceStep": "/api/3/workflow_steps/83633a47-243b-43bf-a28f-fb8794f028e5",
+              "targetStep": "/api/3/workflow_steps/49992d4a-8950-4008-9577-f59a5e746f40"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Doppel - 1.0.0",
+      "description": "Doppel is a next-generation AI security company that specializes in protecting organizations from social engineering attacks, impersonation, malicious ads, fake domains, and phishing campaigns.",
+      "visible": true,
+      "recordTags": [
+        "Doppel",
+        "doppel"
+      ]
+    }
+  ]
+}

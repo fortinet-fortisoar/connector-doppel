@@ -1,0 +1,508 @@
+{
+  "name": "doppel",
+  "label": "Doppel",
+  "version": "1.0.0",
+  "category": "Threat Intelligence",
+  "description": "Doppel is a next-generation AI security company that specializes in protecting organizations from social engineering attacks, impersonation, malicious ads, fake domains, and phishing campaigns.",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "contributor": "",
+  "publisher": "Fortinet",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-doppel/blob/release/1.0.0/docs/readme.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "Specify the server URL of the Doppel server to connect and perform automated operations.",
+        "tooltip": "Specify the server URL of the Doppel server to connect and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": "https://api.doppel.com"
+      },
+      {
+        "title": "API Key",
+        "name": "api_key",
+        "type": "password",
+        "tooltip": "Specify the API Key to connect to the endpoint and perform automated operations.",
+        "description": "Specify the API Key to connect to the endpoint and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "title": "Get All Alerts",
+      "operation": "get_all_alerts",
+      "description": "Retrieve a list of alerts from the Doppel server using the specified filter parameters.",
+      "category": "investigation",
+      "annotation": "get_all_alerts",
+      "parameters": [
+        {
+          "title": "Search Key",
+          "name": "search_key",
+          "type": "text",
+          "description": "Specify a search key to filter alerts. Note: Currently, only URL-based searches are supported.",
+          "tooltip": "Specify a search key to filter alerts. Note: Currently, only URL-based searches are supported.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "placeholder": "For e.g http://example.com"
+        },
+        {
+          "title": "Queue State",
+          "name": "queue_state",
+          "type": "select",
+          "description": "Select a queue state to filter alerts. You can choose from the following options: Doppel Review, Needs Confirmation, Actioned, Taken Down, Monitoring, or Archived.",
+          "tooltip": "Select a queue state to filter alerts. You can choose from the following options: Doppel Review, Needs Confirmation, Actioned, Taken Down, Monitoring, or Archived.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Doppel Review",
+            "Needs Confirmation",
+            "Actioned",
+            "Taken Down",
+            "Monitoring",
+            "Archived"
+          ]
+        },
+        {
+          "title": "Product",
+          "name": "product",
+          "type": "select",
+          "description": "Select the product category associated with the alerts. You can choose from the following options: Domains, Social Media, Mobile Apps, Ecommerce, Crypto, Email, Paid Ads, or Telco.",
+          "tooltip": "Select the product category associated with the alerts. You can choose from the following options: Domains, Social Media, Mobile Apps, Ecommerce, Crypto, Email, Paid Ads, or Telco.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Domains",
+            "Social Media",
+            "Mobile Apps",
+            "Ecommerce",
+            "Crypto",
+            "Email",
+            "Paid Ads",
+            "Telco"
+          ]
+        },
+        {
+          "title": "Created After",
+          "description": "Select a date and time to retrieve alerts that include only those items that were created after the specified timestamp.",
+          "type": "datetime",
+          "name": "created_after",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve alerts that include only those items that were created after the specified timestamp."
+        },
+        {
+          "title": "Created Before",
+          "description": "Select a date and time to retrieve alerts that include only those items that were created before the specified timestamp.",
+          "type": "datetime",
+          "name": "created_before",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve alerts that include only those items that were created before the specified timestamp."
+        },
+        {
+          "title": "Last Activity Timestamp",
+          "description": "Select a date and time to retrieve results that include only those items that were last seen after the specified timestamp.",
+          "type": "datetime",
+          "name": "last_activity_timestamp",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve results that include only those items that were last seen after the specified timestamp."
+        },
+        {
+          "title": "Sort Type",
+          "description": "Select the sorting criteria for the retrieved alerts. You can choose from the following options: Date Sourced or Date Last Actioned.",
+          "type": "select",
+          "name": "sort_type",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select the sorting criteria for the retrieved alerts. You can choose from the following options: Date Sourced or Date Last Actioned.",
+          "options": [
+            "Date Sourced",
+            "Date Last Actioned"
+          ]
+        },
+        {
+          "title": "Order By",
+          "description": "Select the sort order for the retrieved alerts. You can choose from the following options: Ascending or Descending. By default, this option is set to \"Descending\".",
+          "type": "select",
+          "name": "sort_order",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select the sort order for the retrieved alerts. You can choose from the following options: Ascending or Descending. By default, this option is set to \"Descending\".",
+          "options": [
+            "Ascending",
+            "Descending"
+          ]
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve alerts when pagination is applied. This parameter is used to fetch a specific subset of results based on the page number, helping to break large datasets into manageable chunks. By default, this value is set to 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the page number from which to retrieve results when pagination is applied. This parameter is used to fetch a specific subset of results based on the page number, helping to break large datasets into manageable chunks. By default, this value is set to 0.",
+          "value": 0
+        },
+        {
+          "title": "Tags",
+          "description": "Specify a comma-separated list of tags to filter the alerts.",
+          "type": "text",
+          "name": "tags",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify a comma-separated list of tags to filter the alerts.",
+          "placeholder": "For e.g tag1, tag2, etc"
+        }
+      ],
+      "output_schema": {
+        "alerts": [
+          {
+            "id": "",
+            "entity": "",
+            "brand": "",
+            "queue_state": "",
+            "entity_state": "",
+            "severity": "",
+            "product": "",
+            "platform": "",
+            "source": "",
+            "notes": "",
+            "created_at": "",
+            "screenshot_url": "",
+            "last_activity_timestamp": "",
+            "score": "",
+            "message": "",
+            "doppel_link": "",
+            "entity_content": {
+              "root_domain": {
+                "domain": "",
+                "registrar": "",
+                "ip_address": "",
+                "country_code": "",
+                "hosting_provider": "",
+                "contact_email": "",
+                "mx_records": [],
+                "nameservers": [
+                ]
+              }
+            },
+            "audit_logs": [
+              {
+                "timestamp": "",
+                "type": "",
+                "value": "",
+                "changed_by": "",
+                "metadata": {}
+              }
+            ],
+            "tags": [],
+            "uploaded_by": ""
+          }
+        ],
+        "metadata": {
+          "count": "",
+          "page": "",
+          "total_pages": "",
+          "page_size": ""
+        }
+      },
+      "enabled": true
+    },
+    {
+      "title": "Get Alert Details",
+      "operation": "get_alert_details",
+      "description": "Retrieve specific alert details from the Doppel server using the provided alert ID or entity.",
+      "category": "investigation",
+      "annotation": "get_alert_details",
+      "parameters": [
+        {
+          "title": "Alert ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the alert ID to retrieve its details from the Doppel server. Note: You can provide either an Alert ID or an Entity. You can obtain the Alert ID from the response of the \"Get All Alerts\" action.",
+          "tooltip": "Specify the alert ID to retrieve its details from the Doppel server. Note: You can provide either an Alert ID or an Entity. You can obtain the Alert ID from the response of the \"Get All Alerts\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Entity",
+          "name": "entity",
+          "type": "text",
+          "description": "Specify the alert entity to retrieve its details from the Doppel server. Note: You may provide either an Alert ID or an Entity. You can obtain the Entity from the response of the \"Get All Alerts\" action.",
+          "tooltip": "Specify the alert entity to retrieve its details from the Doppel server. Note: You may provide either an Alert ID or an Entity. You can obtain the Entity from the response of the \"Get All Alerts\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "entity": "",
+        "brand": "",
+        "queue_state": "",
+        "entity_state": "",
+        "severity": "",
+        "product": "",
+        "platform": "",
+        "source": "",
+        "notes": "",
+        "created_at": "",
+        "screenshot_url": "",
+        "last_activity": "",
+        "score": "",
+        "message": "",
+        "doppel_link": "",
+        "entity_content": {
+          "root_domain": {
+            "domain": "",
+            "registrar": "",
+            "ip_address": "",
+            "country_code": "",
+            "hosting_provider": "",
+            "contact_email": "",
+            "mx_records": [],
+            "nameservers": []
+          }
+        },
+        "audit_logs": [
+          {
+            "timestamp": "",
+            "type": "",
+            "value": "",
+            "changed_by": "",
+            "metadata": {}
+          }
+        ],
+        "tags": [],
+        "uploaded_by": ""
+      },
+      "enabled": true
+    },
+    {
+      "title": "Update Alert",
+      "operation": "update_alert",
+      "description": "Update a specific alert on the Doppel server using the provided Alert ID or Entity, along with the input parameters you've specified.",
+      "category": "investigation",
+      "annotation": "update_alert",
+      "parameters": [
+        {
+          "title": "Alert ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the alert ID to update its details on the Doppel server. Note: You can provide either an Alert ID or an Entity. You can obtain the Alert ID from the response of the \"Get All Alerts\" action.",
+          "tooltip": "Specify the alert ID to update its details on the Doppel server. Note: You can provide either an Alert ID or an Entity. You can obtain the Alert ID from the response of the \"Get All Alerts\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Entity",
+          "name": "entity",
+          "type": "text",
+          "description": "Specify the alert entity to update its details on the Doppel server. Note: You may provide either an Alert ID or an Entity. You can obtain the Entity from the response of the \"Get All Alerts\" action.",
+          "tooltip": "Specify the alert entity to update its details on the Doppel server. Note: You may provide either an Alert ID or an Entity. You can obtain the Entity from the response of the \"Get All Alerts\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Queue State",
+          "name": "queue_state",
+          "type": "select",
+          "description": "Select the queue state to update the alert. You can choose from the following options: Doppel Review, Needs Confirmation, Actioned, Taken Down, Monitoring, or Archived.",
+          "tooltip": "Select the queue state to update the alert. You can choose from the following options: Doppel Review, Needs Confirmation, Actioned, Taken Down, Monitoring, or Archived.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Doppel Review",
+            "Needs Confirmation",
+            "Actioned",
+            "Taken Down",
+            "Monitoring",
+            "Archived"
+          ]
+        },
+        {
+          "title": "Entity State",
+          "name": "entity_state",
+          "type": "select",
+          "description": "Select the entity state to update the alert. You can choose from the following options: Active, Down, or Parked.",
+          "tooltip": "Select the entity state to update the alert. You can choose from the following options: Active, Down, or Parked.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Active",
+            "Down",
+            "Parked"
+          ]
+        },
+        {
+          "title": "Comment",
+          "description": "Specify a comment to add to the alert.",
+          "type": "text",
+          "name": "comment",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify a comment to add to the alert."
+        },
+        {
+          "title": "Action on Tag",
+          "description": "Select the type of action to perform on the tag. You can choose from the following options: Add or Remove.",
+          "type": "select",
+          "name": "tag_action",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select the type of action to perform on the tag. You can choose from the following options: Add or Remove.",
+          "options": [
+            "Add",
+            "Remove"
+          ]
+        },
+        {
+          "title": "Tag Name",
+          "description": "Specify the tag name to be added or removed.",
+          "type": "text",
+          "name": "tag_name",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the tag name to be added or removed."
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "entity": "",
+        "brand": "",
+        "queue_state": "",
+        "entity_state": "",
+        "severity": "",
+        "product": "",
+        "platform": "",
+        "source": "",
+        "notes": "",
+        "created_at": "",
+        "screenshot_url": "",
+        "last_activity": "",
+        "score": "",
+        "message": "",
+        "doppel_link": "",
+        "entity_content": {
+          "root_domain": {
+            "domain": "",
+            "registrar": "",
+            "ip_address": "",
+            "country_code": "",
+            "hosting_provider": "",
+            "contact_email": "",
+            "mx_records": [],
+            "nameservers": []
+          }
+        },
+        "audit_logs": [
+          {
+            "timestamp": "",
+            "type": "",
+            "value": "",
+            "changed_by": "",
+            "metadata": {}
+          }
+        ],
+        "tags": [],
+        "uploaded_by": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "execute_an_api_call",
+      "title": "Execute an API Request",
+      "annotation": "execute_an_api_call",
+      "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "method",
+          "title": "HTTP Method",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT ",
+          "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        },
+        {
+          "title": "Endpoint",
+          "name": "endpoint",
+          "tooltip": "Specify the target API URL path for example: alerts",
+          "description": "Specify the target API URL path for the request. For example, if the website is https://example.com and URL path is https://example.com/images/pic.jpg, the endpoint would be images/pic.jpg.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Query Parameters",
+          "name": "query_params",
+          "description": "(Optional) Specify any optional parameters to add to the URL and refine the request.",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "name": "payload",
+          "title": "Request Payload",
+          "type": "json",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "description": "(Optional) Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests)."
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}
