@@ -1,7 +1,7 @@
 {
   "name": "doppel",
   "label": "Doppel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "Threat Intelligence",
   "description": "Doppel is a next-generation AI security company that specializes in protecting organizations from social engineering attacks, impersonation, malicious ads, fake domains, and phishing campaigns.",
   "cs_approved": false,
@@ -10,7 +10,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-doppel/blob/release/1.0.0/docs/readme.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-doppel/blob/release/1.1.0/docs/readme.md",
   "configuration": {
     "fields": [
       {
@@ -31,6 +31,16 @@
         "tooltip": "Specify the API Key to connect to the endpoint and perform automated operations.",
         "description": "Specify the API Key to connect to the endpoint and perform automated operations.",
         "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "User API Key",
+        "name": "user_api_key",
+        "type": "password",
+        "tooltip": "Specify the API Key of the user to connect to the endpoint and perform automated operations.",
+        "description": "Specify the API Key of the user to connect to the endpoint and perform automated operations.",
+        "required": false,
         "visible": true,
         "editable": true
       },

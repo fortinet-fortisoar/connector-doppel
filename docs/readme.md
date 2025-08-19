@@ -4,15 +4,21 @@ Doppel is a next-generation AI security company that specializes in protecting o
 
 ### Version information
 
-Connector Version: 1.0.0
+Connector Version: 1.1.0
 
 
 Authored By: Fortinet
 
 Certified: No
 
+## Release Notes for version 1.0.1
+The following enhancements have been made to the Doppel Connector in version 1.1.0:
+<ul>
+<li><p>Added the `User API Key` parameter to the Configuration section.</p></li>
+</ul>
+
 ## Installing the connector
-<p>From FortiSOAR&trade; 5.0.0 onwards, use the <strong>Connector Store</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.<br>You can also use the following <code>yum</code> command as a root user to install connectors from an SSH session:</p>
+<p>From FortiSOAR&trade; 6.3.0 onwards, use the <strong>Connector Store</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.<br>You can also use the following <code>yum</code> command as a root user to install connectors from an SSH session:</p>
 `yum install cyops-connector-doppel`
 
 ## Prerequisites to configuring the connector
@@ -232,7 +238,7 @@ PUT <br>
 
  The output contains a non-dictionary value.
 ## Included playbooks
-The `Sample - Doppel - 1.0.0` playbook collection comes bundled with the Doppel connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR<sup>TM</sup> after importing the Doppel connector.
+The `Sample - Doppel - 1.1.0` playbook collection comes bundled with the Doppel connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR<sup>TM</sup> after importing the Doppel connector.
 
 - Get All Alerts
 - Get Alert Details
