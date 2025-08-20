@@ -11,7 +11,7 @@ Authored By: Fortinet
 
 Certified: No
 
-## Release Notes for version 1.0.1
+## Release Notes for version 1.1.0
 The following enhancements have been made to the Doppel Connector in version 1.1.0:
 <ul>
 <li><p>Added the `User API Key` parameter to the Configuration section.</p></li>
