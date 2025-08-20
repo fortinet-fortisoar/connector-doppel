@@ -21,12 +21,15 @@ class Doppel(object):
         else:
             self.url = url + '/v1/'
         self.api_key = config.get('api_key')
+        self.user_api_key = config.get('user_api_key')
         self.verify_ssl = config.get('verify_ssl', False)
         self.headers = {
             'accept': 'application/json',
             'Content-Type': 'application/json',
             'x-api-key': self.api_key
         }
+        if self.user_api_key:
+            self.headers.update({'x-user-api-key': self.user_api_key})
 
     def make_api_call(self, endpoint, method='POST', payload=None, params=None):
         service_endpoint = self.url + endpoint
