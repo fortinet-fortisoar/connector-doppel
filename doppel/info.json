@@ -10,7 +10,7 @@
   "publisher": "Fortinet",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-doppel/blob/release/1.1.0/docs/readme.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-doppel/blob/release/2.0.0/docs/readme.md",
   "configuration": {
     "fields": [
       {
@@ -69,7 +69,8 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "tooltip": "Specify the OAuth Client ID provided by Doppel server."
+                    "description": "Specify the OAuth Client ID to connect to the endpoint and perform automated operations.",
+                    "tooltip": "Specify the OAuth Client ID to connect to the endpoint and perform automated operations."
                 },
                 {
                     "title": "Client Secret",
@@ -78,7 +79,8 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "tooltip": "Specify the OAuth Client Secret provided by Doppel server."
+                   "description": "Specify the OAuth Client Secret to connect to the endpoint and perform automated operations.",
+                    "tooltip": "Specify the OAuth Client Secret to connect to the endpoint and perform automated operations."
                 }
             ]
         }

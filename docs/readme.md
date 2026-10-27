@@ -4,17 +4,18 @@ Doppel is a next-generation AI security company that specializes in protecting o
 
 ### Version information
 
-Connector Version: 1.1.0
-
+Connector Version: 2.0.0
 
 Authored By: Fortinet
 
+Contributor: Ishwari Dubewar
+
 Certified: No
 
-## Release Notes for version 1.1.0
-The following enhancements have been made to the Doppel Connector in version 1.1.0:
+## Release Notes for version 2.0.0
+The following enhancements have been made to the Doppel Connector in version 2.0.0:
 <ul>
-<li><p>Added the `User API Key` parameter to the Configuration section.</p></li>
+<li><p>Added an `Authentication Type` configuration parameter supporting two authentication methods: `API Key` and `OAuth`.</p></li>
 </ul>
 
 ## Installing the connector
@@ -33,8 +34,27 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 ### Configuration parameters
 <p>In FortiSOAR&trade;, on the Connectors page, click the <strong>Doppel</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations&nbsp;</strong> tab enter the required configuration details:&nbsp;</p>
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Server URL<br></td><td>Specify the server URL of the Doppel server to connect and perform automated operations.<br>
-<tr><td>API Key<br></td><td>Specify the API Key to connect to the endpoint and perform automated operations.<br>
-<tr><td>Verify SSL<br></td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set as True.<br></td></tr>
+<tr>
+  <td>Authentication Type</td>
+  <td>
+    Select the authentication method to use to connect to the Doppel server.
+
+<b>If you choose 'API Key'</b>
+<ul>
+  <li>API Key: Specify the API Key to connect to the endpoint and perform automated operations.</li>
+  <li>User API Key: Specify the API Key of the user to connect to the endpoint and perform automated operations.</li>
+</ul>
+
+<b>If you choose 'OAuth'</b>
+<ul>
+  <li>Client ID: Specify the OAuth Client ID to connect to the endpoint and perform automated operations.</li>
+  <li>Client Secret: Specify the OAuth Client Secret to connect to the endpoint and perform automated operations.</li>
+</ul>
+
+  </td>
+</tr>
+
+</td> </tr><tr><td>Verify SSL<br></td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set as True.<br></td></tr>
 </tbody></table>
 
 ## Actions supported by the connector
